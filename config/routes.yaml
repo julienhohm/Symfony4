@@ -1,3 +1,29 @@
-#index:
+#home:
 #    path: /
-#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+#    controller: App\Controller\TourismeController::home
+#    
+#add_activity:
+#    path: /activite/ajouter
+#    controller: App\Controller\ActivityController::add
+#    
+#view_activity:
+#    path: /activite/voir/{id}
+#    controller: App\Controller\ActivityController::view
+#    requirements:
+#        id: \d+
+#        
+#add_activity_department_json:
+#    path: /activite/ajouter/region/{regionId}
+#    controller: App\Controller\ActivityController::fillDepartments
+#    defaults:
+#        regionId: 1
+#    requirements:
+#        regionId: \d+
+#        
+#add_activity_city_json:
+#    path: /activite/ajouter/departement/{departmentId}
+#    controller: App\Controller\ActivityController::fillCities
+#    defaults:
+#        departmentId: 1
+#    requirements:
+#        departmentId: \d+

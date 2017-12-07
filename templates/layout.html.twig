@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+  	<head>
+    	<meta charset="utf-8">
+    	<title>{% block title %}JH Tourisme{% endblock %}</title>
+    	<link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
+        {%block linkjs %}{% endblock %}
+        {#<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>#}
+        {% block stylesheets %}{% endblock %}
+  	</head>
+  	<body>
+  		<header class="hero is-primary">
+			<div class="hero-body">
+				<div class="container">
+					<div class="columns is-vcentered">
+						<div class="column">
+							<h1 class="title">
+								Hero title
+							</h1>
+							<h2 class="subtitle">
+								Hero subtitle
+							</h2>	
+						</div>
+						<div class="column is-narrow">
+							<figure class="image is-128x128">
+								<img src="http://via.placeholder.com/128x128" alt=""/>
+							</figure>
+						</div>				
+					</div>
+				</div>
+			</div>
+		</header>
+   		{{ render(controller("App\\Controller\\TourismeController::showNavbar")) }}
+    	{% block body %}
+    	{% endblock %}
+    	<footer class="footer">
+			<div class="container">
+				<div class="columns is-variable is-8">
+					<div class="column">
+						<div class="content">
+							<h4 class="title is-4 has-text-weight-semibold">Plan du site</h4>
+							<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora veniam est sapiente natus repudiandae totam iusto laborum, nobis impedit? Est?</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="content">
+							<h4 class="title is-4 has-text-weight-semibold">A propos</h4>
+							<div>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit debitis sunt ad sapiente quo, saepe molestias magnam iste iure quas?
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="content">
+							<h4 class="title is-4 has-text-weight-semibold">Contacts</h4>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</footer>
+		<div class="container">
+			<div class="content has-text-centered is-size-7">
+				<p>
+					Réalisé par Julien Hohm - Propulsé par <a href="http://bulma.io">Bulma.io</a>
+				</p>
+			</div>
+		</div>
+		{% block javascripts %}{% endblock %}
+	</body>
+</html>

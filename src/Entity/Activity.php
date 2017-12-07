@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActivityRepository")
@@ -20,6 +21,7 @@ class Activity
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=100)
+     * @Assert\Length(min=5, max=100, minMessage="activity.name.length.min", maxMessage="activity.name.length.max")
      */
     private $name;
 

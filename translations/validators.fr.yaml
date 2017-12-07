@@ -1,0 +1,5 @@
+activity:
+    name:
+        length:
+            min: Le nom doit comporter au minimum 5 caractères.
+            max: Le nom ne doit pas dépasser 100 caractères.

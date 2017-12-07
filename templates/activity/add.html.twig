@@ -1,0 +1,142 @@
+{% extends "layout.html.twig" %}
+
+{% block linkjs %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline is-centered">
+            <div class="column is-12 has-text-centered">
+                <h1 class="title">{{ 'activity.add.title'|trans }}</h1>
+            </div>
+            <div class="column">
+                {{ form_start(form) }}
+
+                {{ form_errors(form) }}
+
+                <div class="field">
+                    {{ form_label(form.name, "Nom :") }}
+                    <div class="control">
+                        {{ form_widget(form.name) }}
+                    </div>
+                    <p class="help is-danger">{{ form_errors(form.name) }}</p>
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.description, "Description :") }}
+                    {{ form_errors(form.description) }}
+                    <div class="control">
+                        {{ form_widget(form.description) }}
+                    </div>
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.address, "Adresse :") }}
+                    {{ form_errors(form.address) }}
+                    <div class="control">
+                        {{ form_widget(form.address) }}
+                    </div>
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.website, "Site internet :") }}
+                    {{ form_errors(form.website) }}
+                    <div class="control">
+                        {{ form_widget(form.website) }}
+                    </div>
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.region, "Region :") }}
+                    {{ form_errors(form.region) }}
+                    <div class="control">
+                        <div class="select">
+                            {{ form_widget(form.region) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.department, "Departement :") }}
+                    {{ form_errors(form.department) }}
+                    <div class="control">
+                        <div class="select">
+                            {{ form_widget(form.department) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.city, "Ville :") }}
+                    {{ form_errors(form.city) }}   
+                    <div class="control">
+                        <div class="select">
+                            {{ form_widget(form.city) }}
+                        </div>
+                    </div>
+                </div>
+                
+                <input class="button is-primary" type="submit" value="{{ 'activity.add.save'|trans }}"></input>
+
+                {{ form_rest(form) }}
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    /*
+    // Get the dropdown region
+    var region = $("#activity_region");
+
+    // Add a onchange event
+    region.change(function()
+    {
+        $("#activity_city").html("<option value='' selected='selected'>Choose a city</option>");
+        $("#activity_department").html("<option value='' selected='selected'>Choose a department</option>");
+        
+        $.getJSON(Routing.generate('add_activity_department_json', { regionId: this.value }), function(data)
+        {
+
+            var options = [];
+            $.each(data, function(i, department){
+
+                options.push("<option value=" + department.departmentId + ">" + department.departmentNumber + " - " + department.departmentName + "</option>");
+
+            });
+
+            $("#activity_department").append(options);
+
+        });
+
+    });
+
+    // Get the dropdown department
+    var department = $("#activity_department");
+
+    // Add a onchange event
+    department.change(function()
+    {
+        $("#activity_city").html("<option value='' selected='selected'>Choose a city</option>");
+        $.getJSON(Routing.generate('add_activity_city_json', { departmentId: this.value }), function(data)
+        {
+            var options = [];
+            $.each(data, function(i, city){
+
+                options.push("<option value=" + city.cityId + ">" + city.cityPostalCode + " - " + city.cityName + "</option>");
+
+            });
+
+            $("#activity_city").append(options);
+
+        });
+    });
+    
+    // Initialize the drowpdown with the default selected region
+    //$("#activity_region").change();
+    */
+</script>
+{% endblock %}
