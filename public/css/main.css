@@ -3,6 +3,19 @@
     color: #00D1B2;
 }
 
+/*.fa-warning{
+    color: #ff3860;
+}
+
+.fa-check{
+    color: #23d160;
+}*/
+
+.control.has-icons-right .textarea{
+    padding-right: 2.25em;
+    overflow-y: hidden;
+}
+
 #map{
 	height: 500px;
 }

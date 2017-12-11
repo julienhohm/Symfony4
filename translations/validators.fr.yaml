@@ -3,3 +3,6 @@ activity:
         length:
             min: Le nom doit comporter au minimum 5 caractères.
             max: Le nom ne doit pas dépasser 100 caractères.
+    description:
+        length:
+            max: La description ne doit pas dépasser 255 caractères.

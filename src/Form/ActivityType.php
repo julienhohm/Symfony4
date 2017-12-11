@@ -28,8 +28,7 @@ class ActivityType extends AbstractType
         $builder
             ->add("name", TextType::class, array(
                 'label_attr'    => array('class' => 'label'),
-                'required'      => true,
-                'attr'          => array('class' => 'input')
+                'required'      => true
                 ))
             ->add("description", TextAreaType::class, array(
                 'label_attr'    => array('class' => 'label'),

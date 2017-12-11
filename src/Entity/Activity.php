@@ -36,6 +36,7 @@ class Activity
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)
+     * @Assert\Length(max=255, maxMessage="activity.description.length.max")
      */
     private $description;
 
