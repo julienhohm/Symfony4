@@ -13,16 +13,15 @@ class CityRepository extends ServiceEntityRepository
         parent::__construct($registry, City::class);
     }
 
-    /*
-    public function findBySomething($value)
+    public function findByDepartment($id)
     {
-        return $this->createQueryBuilder('c')
-            ->where('c.something = :value')->setParameter('value', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+        return $this
+            ->createQueryBuilder("c")
+            ->innerJoin("c.department", "d")
+            ->where("d.id = :id")
+                ->setParameter("id", $id)
             ->getQuery()
-            ->getResult()
+            ->getArrayResult()
         ;
     }
-    */
 }

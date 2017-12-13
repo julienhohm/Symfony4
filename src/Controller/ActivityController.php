@@ -17,7 +17,7 @@ class ActivityController extends AbstractController
     /**
     * @Route(
         "/activite/ajouter/", 
-        name="add_activity"
+        name = "add_activity"
     )
     */
     public function add(Request $request)
@@ -49,8 +49,8 @@ class ActivityController extends AbstractController
     /**
     * @Route(
         "/activite/{id}/",
-        name="view_activity",
-        requirements={"page": "\d+"}
+        name = "view_activity",
+        requirements = {"page": "\d+"}
     )
     */
     public function view($id)
@@ -63,15 +63,16 @@ class ActivityController extends AbstractController
     /**
     * @Route(
         "/activite/ajouter/region/{regionId}",
-        name="add_activity_department_json",
-        requirements={"regionId": "\d+"}
+        name = "add_activity_department_json",
+        requirements = {"regionId": "\d+"},
+        options = {"expose" = true}
     )
     */
     public function fillDepartments(Request $request, $regionId = 1)
     {
         $departments = array();
        
-        foreach($this->getDoctrine()->getManager()->getRepository(Department::class)->getByRegion($regionId) as $department)
+        foreach($this->getDoctrine()->getManager()->getRepository(Department::class)->findByRegion($regionId) as $department)
         {
 			$departments[] = array(
 				"departmentId"      => $department["id"],
@@ -86,15 +87,16 @@ class ActivityController extends AbstractController
     /**
     * @Route(
         "/activite/ajouter/departement/{departmentId}",
-        name="add_activity_city_json",
-        requirements={"departmentId": "\d+"}
+        name = "add_activity_city_json",
+        requirements = {"departmentId": "\d+"},
+        options = {"expose" = true}
     )
     */
     public function fillCities(Request $request, $departmentId = 1)
     {
         $cities = array();
        
-        foreach($this->getDoctrine()->getManager()->getRepository(City::class)->getByDepartment($departmentId) as $city)
+        foreach($this->getDoctrine()->getManager()->getRepository(City::class)->findByDepartment($departmentId) as $city)
         {
 			$cities[] = array(
                 "cityId"            => $city["id"],
