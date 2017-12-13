@@ -3,6 +3,16 @@ activity:
         length:
             min: Le nom doit comporter au minimum 5 caractères.
             max: Le nom ne doit pas dépasser 100 caractères.
+        notnull: Le nom doit être renseigné.
     description:
         length:
             max: La description ne doit pas dépasser 255 caractères.
+        notnull: La description doit être renseignée.
+    address:
+        length:
+            max: L'adresse ne doit pas dépasser 255 caractères.
+        notnull: L'adresse doit être renseignée.
+    website:
+        incorrect: Le site internet saisi ne correspond pas à une adresse valide.
+    city:
+        incorrect: La ville saisie est incorrecte.

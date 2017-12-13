@@ -32,25 +32,21 @@ class ActivityType extends AbstractType
                 ))
             ->add("description", TextAreaType::class, array(
                 'label_attr'    => array('class' => 'label'),
-                'required'      => true,
-                'attr'          => array('class' => 'textarea')
+                'required'      => true
                 ))
             ->add("address", TextAreaType::class, array(
                 'label_attr'    => array('class' => 'label'),
-                'required'      => true,
-                'attr'          => array('class' => 'textarea')
+                'required'      => true
                 ))
             ->add("website", UrlType::class, array(
                 'label_attr'    => array('class' => 'label'),
-                'required'      => true,
-                'attr'          => array('class' => 'input')
+                'required'      => true
                 ))
             ->add("region", EntityType::class, array(
                 'class'         => Region::class, 
                 'mapped'        => false,
                 'choice_label'  => 'name',
                 'placeholder'   => 'Choose a region',
-                'label_attr'    => array('class' => 'label'),
                 'required'      => false
                 ))
             ->add("department", EntityType::class, array(
@@ -59,7 +55,6 @@ class ActivityType extends AbstractType
                 'mapped'        => false,
                 'choice_label'  => 'name',
                 'placeholder'   => 'Choose a department',
-                'label_attr'    => array('class' => 'label'),
                 'required'      => false
                 ))
             ->add("city", EntityType::class, array(
@@ -68,9 +63,7 @@ class ActivityType extends AbstractType
                 'mapped'        => false,
                 'choice_label'  => 'name',
                 'placeholder'   => 'Choose a city',
-                'label_attr'    => array('class' => 'label'),
-                'required'      => false,
-                'query_builder' => null
+                'required'      => false
                 ))
         ;
         

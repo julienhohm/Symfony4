@@ -7,49 +7,127 @@
 {% block text_widget %}
     {% if submitted %}
         {% if errors|length > 0%}
-            {% set controlClass='has-icons-right' %}
+            {% set controlClass='has-icons-left' %}
             {% set inputClass='is-danger' %}
             {% set spanClass='has-text-danger' %}
             {% set iClass='fa-warning' %}
         {% else %}
-            {% set controlClass='has-icons-right' %}
+            {% set controlClass='has-icons-left' %}
             {% set inputClass='is-success' %}
             {% set spanClass='has-text-success' %}
             {% set iClass='fa-check' %}
         {% endif %}
+    {% else %}
+        {% set controlClass='' %}
+        {% set inputClass='' %}
+        {% set spanClass='' %}
+        {% set iClass='' %}
     {% endif %}   
 
     <div class="control {{ controlClass }}">
         <input type='text' {{ block('widget_attributes') }} class='input {{ inputClass }}' {% if value is not empty %}value="{{ value }}" {% endif %}>
         {% if submitted %}
-        <span class="icon is-small is-right {{ spanClass }}">
+        <span class="icon is-small is-left {{ spanClass }}">
             <i class="fa {{ iClass }}"></i>
         </span>
         {% endif %}
     </div>
 {% endblock text_widget %}
 
+{% block url_widget %}
+    {% if submitted %}
+        {% if errors|length > 0%}
+            {% set controlClass='has-icons-left' %}
+            {% set inputClass='is-danger' %}
+            {% set spanClass='has-text-danger' %}
+            {% set iClass='fa-warning' %}
+        {% else %}
+            {% set controlClass='has-icons-left' %}
+            {% set inputClass='is-success' %}
+            {% set spanClass='has-text-success' %}
+            {% set iClass='fa-check' %}
+        {% endif %}
+    {% else %}
+        {% set controlClass='' %}
+        {% set inputClass='' %}
+        {% set spanClass='' %}
+        {% set iClass='' %}
+    {% endif %}   
+
+    <div class="control {{ controlClass }}">
+        <input type='text' {{ block('widget_attributes') }} class='input {{ inputClass }}' {% if value is not empty %}value="{{ value }}" {% endif %}>
+        {% if submitted %}
+        <span class="icon is-small is-left {{ spanClass }}">
+            <i class="fa {{ iClass }}"></i>
+        </span>
+        {% endif %}
+    </div>
+{% endblock url_widget %}
+
 {% block textarea_widget %}
     {% if submitted %}
         {% if errors|length > 0%}
-            {% set controlClass='has-icons-right' %}
+            {% set controlClass='has-icons-left' %}
             {% set textareaClass='is-danger' %}
             {% set spanClass='has-text-danger' %}
             {% set iClass='fa-warning' %}
         {% else %}
-            {% set controlClass='has-icons-right' %}
+            {% set controlClass='has-icons-left' %}
             {% set textareaClass='is-success' %}
             {% set spanClass='has-text-success' %}
             {% set iClass='fa-check' %}
         {% endif %}
+    {% else %}
+        {% set controlClass='' %}
+        {% set textareaClass='' %}
+        {% set spanClass='' %}
+        {% set iClass='' %}
     {% endif %}   
 
     <div class="control {{ controlClass }}">
-        <textarea type='textarea' {{ block('widget_attributes') }} class='textarea {{ textareaClass }}' {% if value is not empty %}value="{{ value }}" {% endif %}></textarea>
+        <textarea type='textarea' {{ block('widget_attributes') }} class='textarea {{ textareaClass }}'>{{ value }}</textarea>
         {% if submitted %}
-        <span class="icon is-small is-right {{ spanClass }}">
+        <span class="icon is-small is-left {{ spanClass }}">
             <i class="fa {{ iClass }}"></i>
         </span>
         {% endif %}
     </div>
 {% endblock textarea_widget %}
+
+{% block choice_widget_collapsed %}
+    {% if submitted %}
+        {% if errors|length > 0 or value == 0 %}
+            {% set controlClass='has-icons-left' %}
+            {% set selectClass='is-danger' %}
+            {% set spanClass='has-text-danger' %}
+            {% set iClass='fa-warning' %}
+        {% else %}
+            {% set controlClass='has-icons-left' %}
+            {% set selectClass='is-success' %}
+            {% set spanClass='has-text-success' %}
+            {% set iClass='fa-check' %}
+        {% endif %}
+    {% else %}
+        {% set controlClass='' %}
+        {% set selectClass='' %}
+        {% set spanClass='' %}
+        {% set iClass='' %}
+    {% endif %}
+    <p class="control {{ controlClass }}">
+        <span class="select {{ selectClass }}">
+            <select {{ block('widget_attributes') }}>
+                {% if placeholder is not none -%}
+                    <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder != '' ? (translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain)) }}</option>
+                {% endif %}
+                {% set options = choices %}
+                {{ block('choice_widget_options') }}
+            </select>
+        </span>
+        
+        {% if submitted %}
+        <span class="icon is-small is-left {{ spanClass }}">
+            <i class="fa {{ iClass }}"></i>
+        </span>
+        {% endif %}
+    </p>
+{% endblock choice_widget_collapsed %}

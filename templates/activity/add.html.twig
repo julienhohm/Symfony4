@@ -32,48 +32,32 @@
 
                 <div class="field">
                     {{ form_label(form.address, "Adresse :") }}
+                    {{ form_widget(form.address) }}
                     {{ form_errors(form.address) }}
-                    <div class="control">
-                        {{ form_widget(form.address) }}
-                    </div>
                 </div>
 
                 <div class="field">
                     {{ form_label(form.website, "Site internet :") }}
+                    {{ form_widget(form.website) }}
                     {{ form_errors(form.website) }}
-                    <div class="control">
-                        {{ form_widget(form.website) }}
-                    </div>
                 </div>
 
                 <div class="field">
                     {{ form_label(form.region, "Region :") }}
                     {{ form_errors(form.region) }}
-                    <div class="control">
-                        <div class="select">
-                            {{ form_widget(form.region) }}
-                        </div>
-                    </div>
+                    {{ form_widget(form.region) }}
                 </div>
 
                 <div class="field">
                     {{ form_label(form.department, "Departement :") }}
+                    {{ form_widget(form.department) }}
                     {{ form_errors(form.department) }}
-                    <div class="control">
-                        <div class="select">
-                            {{ form_widget(form.department) }}
-                        </div>
-                    </div>
                 </div>
 
                 <div class="field">
                     {{ form_label(form.city, "Ville :") }}
-                    {{ form_errors(form.city) }}   
-                    <div class="control">
-                        <div class="select">
-                            {{ form_widget(form.city) }}
-                        </div>
-                    </div>
+                    {{ form_widget(form.city) }}
+                    {{ form_errors(form.city) }}
                 </div>
                 
                 <input class="button is-primary" type="submit" value="{{ 'activity.add.save'|trans }}">
@@ -86,7 +70,7 @@
     </div>
 </section>
 <script>
-    /*
+    
     // Get the dropdown region
     var region = $("#activity_region");
 
@@ -135,6 +119,6 @@
     
     // Initialize the drowpdown with the default selected region
     //$("#activity_region").change();
-    */
+    
 </script>
 {% endblock %}

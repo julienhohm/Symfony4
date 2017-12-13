@@ -6,9 +6,9 @@
     	<link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
     	<link rel="stylesheet" href="{{ asset('css/main.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
         {%block linkjs %}{% endblock %}
-        {#<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>#}
         {% block stylesheets %}{% endblock %}
   	</head>
   	<body>

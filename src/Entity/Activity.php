@@ -22,6 +22,7 @@ class Activity
      *
      * @ORM\Column(name="name", type="string", length=100)
      * @Assert\Length(min=5, max=100, minMessage="activity.name.length.min", maxMessage="activity.name.length.max")
+     * @Assert\NotBlank(message="activity.name.notnull")
      */
     private $name;
 
@@ -29,6 +30,8 @@ class Activity
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255)
+     * @Assert\Length(max=255, maxMessage="activity.address.length.max")
+     * @Assert\NotBlank(message="activity.address.notnull")
      */
     private $address;
 
@@ -37,6 +40,7 @@ class Activity
      *
      * @ORM\Column(name="description", type="string", length=255)
      * @Assert\Length(max=255, maxMessage="activity.description.length.max")
+     * @Assert\NotBlank(message="activity.description.notnull")
      */
     private $description;
 
@@ -44,12 +48,14 @@ class Activity
      * @var string
      *
      * @ORM\Column(name="website", type="string", length=255, nullable=true)
+     * @Assert\Url(message="activity.website.incorrect")
      */
     private $website;
 
 	/**
 	* @ORM\ManyToOne(targetEntity="App\Entity\City")
 	* @ORM\JoinColumn(nullable=false)
+    * @Assert\Choice(callback="findAll", message="activity.city.incorrect")
 	*/
 	private $city;
 	

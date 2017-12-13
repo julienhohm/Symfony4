@@ -11,9 +11,8 @@
     color: #23d160;
 }*/
 
-.control.has-icons-right .textarea{
-    padding-right: 2.25em;
-    overflow-y: hidden;
+.control.has-icons-left .textarea{
+    padding-left: 2.25em;
 }
 
 #map{
